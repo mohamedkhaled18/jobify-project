@@ -12,7 +12,7 @@
 body {
   min-height: 100vh;
 
-  background: linear-gradient(135deg, #6a11cb, #8b5cf6, #a855f7);
+  background-image: url(../materials/signup.png);
 
   display: flex;
   justify-content: center;

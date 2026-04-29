@@ -12,7 +12,7 @@
 body {
   min-height: 100vh;
 
-  background: linear-gradient(135deg, #6a11cb, #8b5cf6, #a855f7);
+  background-image: url(../materials/signup.png);
 
   display: flex;
   justify-content: center;
@@ -165,10 +165,4 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(139,92,246,0.4), rgba(168,85,247,0.4));
-}
-
-.alerts * {
-  color: red;
-  padding-block: 5px;
-  display: none;
 }

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Browse Jobs - Jobify</title>
+<link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/jobs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="home.html">
+        <span>Jobify</span>
+      </a>
+    </div>
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="pages-section">
+        <ul>
+          <li><a href="home.html">HOME</a></li>
+          <li><a class="active" href="jobs.html">FIND JOBS</a></li>
+          <li><a href="event.html">EVENTS</a></li>
+          <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+      </div>
+      <div class="regist">
+        <ul>
+          <li>
+            <a href="register.html">REGISTER</a>
+          </li>
+          <li>
+            <a href="login.html">LOGIN</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+<!-- HERO — comes after header now -->
+<section class="hero">
+  <h1>Ready for your next step?</h1>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search jobs, companies, skills...">
+    <button onclick="applyFilters()"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="page-container">
+  <div class="main-layout">
+
+    <!-- FILTERS SIDEBAR -->
+    <div class="filters-panel">
+      <div class="filters-header">
+        <span>Filters</span>
+        <button class="clear-btn" onclick="clearAll()">Clear all filters</button>
+      </div>
+
+      <div class="filter-group">
+        <h4>Job Type</h4>
+        <label class="filter-label">
+          <input type="checkbox" class="f-type" value="Full Time">
+          Full Time <span class="filter-count">(2)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-type" value="Part Time">
+          Part Time <span class="filter-count">(2)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-type" value="Internship">
+          Internship <span class="filter-count">(1)</span>
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Workplace</h4>
+        <label class="filter-label">
+          <input type="checkbox" class="f-place" value="On Site">
+          On Site <span class="filter-count">(3)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-place" value="Remote">
+          Remote <span class="filter-count">(1)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-place" value="Hybrid">
+          Hybrid <span class="filter-count">(1)</span>
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <h4>City</h4>
+        <label class="filter-label">
+          <input type="checkbox" class="f-city" value="Cairo">
+          Cairo <span class="filter-count">(2)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-city" value="Alexandria">
+          Alexandria <span class="filter-count">(1)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-city" value="Giza">
+          Giza <span class="filter-count">(1)</span>
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-city" value="Remote">
+          Remote <span class="filter-count">(1)</span>
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Date Posted</h4>
+        <label class="filter-label">
+          <input type="checkbox" class="f-date" value="1">
+          Last 24 hours
+        </label>
+        <label class="filter-label">
+          <input type="checkbox" class="f-date" value="7">
+          Last week
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">
+          <input type="checkbox" id="savedOnly">
+          <i class="fa-solid fa-bookmark" style="color:#8b5cf6;font-size:13px;"></i>
+          Saved Jobs only
+        </label>
+      </div>
+    </div>
+
+    <!-- JOBS LIST -->
+    <div class="jobs-col">
+      <div class="results-count" id="resultsCount"><strong>5</strong> jobs found</div>
+      <div id="jobsList"></div>
+    </div>
+
+    <!-- DETAILS PANEL -->
+    <div class="detail-panel">
+      <div id="detailPlaceholder" class="detail-placeholder">
+        <i class="fa-regular fa-file-lines"></i>
+        Select a job to see details
+      </div>
+      <div id="detailContent" style="display:none;"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="contacts">
+    <h3>Contacts</h3>
+    <p><strong>Address:</strong> 88 October Road, Nasr City, Cairo, Egypt</p>
+    <p><strong>Phone:</strong> +20 1198 745 623 / +20 1256 974 365</p>
+    <div class="socialmedia">
+      <h5>Follow us</h5>
+      <div class="links">
+        <i class="fab facebook fa-facebook-f"></i>
+        <i class="fab twitter fa-twitter"></i>
+        <i class="fab instagram fa-instagram"></i>
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+  <div class="explore">
+    <h3>Explore</h3>
+    <a href="jobs.html">Browse Jobs</a>
+    <a href="event.html">Career Events</a>
+    <a href="#">Partners</a>
+    <a href="#">About us</a>
+    <a href="#">Testimonials</a>
+  </div>
+  <div class="useracc">
+    <h3>My Account</h3>
+    <a href="login.html">Sign in</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="contact.html">Help</a>
+    <a href="register.html">Sign up</a>
+  </div>
+  <div class="legal">
+    <h3>Legal</h3>
+    <a href="#">Cookie Policy</a>
+    <a href="#">Terms &amp; Conditions</a>
+    <a href="#">Privacy Policy</a>
+    <a href="contact.html">Contact us</a>
+  </div>
+  <div class="app">
+    <h3>Our App</h3>
+    <p>Download it now from</p>
+    <div class="install">
+      <img src="../materials/play.jpg" alt="Google Play">
+      <img src="../materials/app.jpg" alt="App Store">
+    </div>
+    <p>Multiple secured payment</p>
+    <img src="../materials/pay.png" alt="payment">
+  </div>
+  <div class="copyrights">
+    © 2026 Jobify. All rights reserved.
+  </div>
+</footer>
+  <script src="../JS/jobs.js"></script>
+</body>
+</html>
