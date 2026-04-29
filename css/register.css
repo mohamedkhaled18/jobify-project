@@ -40,13 +40,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 80px; 
+  margin-block: 150px;
 }
 
 
 .container {
   width: 900px;
-  height: 500px;
   display: flex;
   border-radius: 15px;
   overflow: hidden;
@@ -120,7 +119,7 @@ body {
 .register-btn {
   width: 100%;
   padding: 12px;
-  margin-top: 15px;
+  margin-block: 15px;
   background: linear-gradient(135deg, #8b5cf6, #6d28d9);
   color: white;
   border: none;
@@ -166,4 +165,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(139,92,246,0.4), rgba(168,85,247,0.4));
+}
+
+.alerts * {
+  color: red;
+  padding-block: 5px;
+  display: none;
 }
