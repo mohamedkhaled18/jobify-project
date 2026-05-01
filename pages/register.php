@@ -1,3 +1,9 @@
+<?php
+  include_once 'DB.php';
+  $db = new DB('virtual_fair');
+  $db->connect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -144,10 +150,11 @@
         })
 
         let permission = isAllValid.every(i => i == true);
-        if (permission)
+        if (permission) {
           form.submit();
+          
+        }
         else blankInputsAlert.style.display = 'block';
-        console.log(permission)
       });
 
   </script>

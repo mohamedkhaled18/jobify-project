@@ -166,3 +166,8 @@ body {
   inset: 0;
   background: linear-gradient(135deg, rgba(139,92,246,0.4), rgba(168,85,247,0.4));
 }
+
+.alerts * {
+  color: red;
+  padding-block: 5px;
+}
