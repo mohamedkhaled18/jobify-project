@@ -7,13 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../css/globaldashboard.css">
-<link rel="stylesheet" href="../CSS/recruiterdashboard.css">
+<link rel="stylesheet" href="../Views/css/recruiterdashboard.css">
 </head>
 <body>
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
-  <h2><a href="../index.php">Jobify</a></h2>
+  <h2><a href="../Views/index.php">Jobify</a></h2>
   <nav class="nav">
     <div class="nav-section">Main</div>
     <div class="nav-item active" onclick="show('dashboard')"><i class="fas fa-th-large"></i> Dashboard</div>
@@ -312,6 +312,6 @@
   </div>
 </div>
 
-<script src="../JS/recruiterdashboard.js"></script>
+<script src="../Views/js/recruiterdashboard.js"></script>
 </body>
 </html>

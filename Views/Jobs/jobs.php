@@ -23,7 +23,7 @@
       <div class="pages-section">
         <ul>
           <li><a href="../index.php">HOME</a></li>
-          <li><a class="active" href="../Jobs/jobs.html">FIND JOBS</a></li>
+          <li><a class="active" href="../Jobs/jobs.php">FIND JOBS</a></li>
           <li><a href="../event.html">EVENTS</a></li>
           <li><a href="../contact.html">CONTACT US</a></li>
         </ul>
@@ -170,7 +170,7 @@
   </div>
   <div class="explore">
     <h3>Explore</h3>
-    <a href="../Jobs/jobs.html">Browse Jobs</a>
+    <a href="../Jobs/jobs.php">Browse Jobs</a>
     <a href="../event.html">Career Events</a>
     <a href="#">Partners</a>
     <a href="#">About us</a>
@@ -179,7 +179,7 @@
   <div class="useracc">
     <h3>My Account</h3>
     <a href="../Authentication/login.php">Sign in</a>
-    <a href="../Student/studentdashboard.html">Dashboard</a>
+    <a href="../Student/studentdashboard.php">Dashboard</a>
     <a href="../contact.html">Help</a>
     <a href="../Authentication/register.php">Sign up</a>
   </div>
@@ -204,6 +204,6 @@
     © 2026 Jobify. All rights reserved.
   </div>
 </footer>
-  <script src="../JS/jobs.js"></script>
+  <script src="../js/jobs.js"></script>
 </body>
 </html>

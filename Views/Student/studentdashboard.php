@@ -396,6 +396,6 @@
   </div>
 </div>
 
-<script src="../JS/studentdashoard.js"></script>
+<script src="../js/studentdashoard.js"></script>
 </body>
 </html>

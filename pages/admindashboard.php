@@ -13,7 +13,7 @@
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
-  <h2><a href="../index.php">Jobify</a></h2>
+  <h2><a href="../Views/index.php">Jobify</a></h2>
 
   <nav class="nav">
     <div class="nav-section">Main</div>
@@ -313,6 +313,6 @@
   </div>
 </div>
 
-<script src="../JS/admindashboard.js"></script>
+<script src="../Views/js/admindashboard.js"></script>
 </body>
 </html>
