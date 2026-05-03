@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  scrollbar-width: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* THEME COLORS */
+:root {
+  --primary-purple-color: #8b5cf6;
+  --dark-purple: #6d28d9;
+
+  --body-background: #ffffff;
+  --card-background: #2b2b2b;
+  --btn-background: #f9f9f9;
+
+  --primary-color: #1e1b4b;
+  --secondary-color: #808080;
+
+  --input-border: #E6E6E6;
+  --input-placeholder: #999999;
+
+  --box-shadow: 0 5px 25px rgb(0 0 0 / 22%);
+  --invalid-color: #ff2929;
+  --gray-600: #666666;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--body-background);
+  padding-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+.active {
+  color: var(--primary-purple-color);
+}
+
+/* HEADER */
+header.main-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 50px;
+
+  background: transparent;
+  backdrop-filter: none;
+
+  z-index: 10;
+}
+
+/* LOGO */
+header .logo a span {
+  font-size: 2rem;
+  padding-left: 5px;
+  color: #fff;
+}
+
+/* NAV LINKS */
+nav ul li a {
+  font-weight: bold;
+  color: #fff;
+  transition: 0.3s;
+  font-size: 1.1rem;
+}
+
+/* NAV CONTAINER */
+header nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* CENTER MENU */
+header nav .pages-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+header nav .pages-section ul {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  align-items: center;
+}
+
+/* REGISTER / LOGIN */
+header nav .regist {
+  display: flex;
+  justify-content: flex-end;
+  height: 100px;
+}
+
+header nav .regist ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+/* HOVER LINKS */
+nav ul li a:hover {
+  color: var(--primary-purple-color);
+}
+
+/* REGISTER BUTTON */
+header nav .regist ul li a {
+  padding: 15px 25px;
+  background-color: var(--primary-purple-color);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+header nav .regist ul li a:hover {
+  background-color: var(--dark-purple);
+}
+
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 60px;
+  color: var(--primary-color);
+}
+
+footer .contacts {
+  margin: 0 0 0 50px;
+}
+
+footer .useracc,
+footer .explore,
+footer .legal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+footer h3 {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+footer p {
+  font-size: 15px;
+  margin: 0 0 8px 0;
+}
+
+footer a {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+footer a:hover {
+  color: var(--dark-purple);
+}
+
+footer .socialmedia {
+  margin-top: 20px;
+}
+
+footer .socialmedia i {
+  color: var(--primary-color);
+  padding-right: 4px;
+  cursor: pointer;
+}
+
+footer .socialmedia i:hover {
+  color: var(--dark-purple);
+}
+
+footer .app .install img {
+  border: 1px solid #666;
+  border-radius: 6px;
+}
+
+footer .app img {
+  margin: 10px 0 15px 0;
+}
+
+footer .copyrights {
+  text-align: center;
+  width: 100%;
+  margin: 45px 0 15px 0;
+}
+
+footer .app {
+  margin-right: 50px;
+}
+
+/* EMPTY CART TEXT */
+.empty-ptr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-purple-color);
+}

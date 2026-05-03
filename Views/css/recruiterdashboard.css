@@ -1,0 +1,52 @@
+/* FORM */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--muted); display: block; margin-bottom: 5px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%; padding: 9px 12px;
+  border: 1px solid var(--border); border-radius: 9px;
+  font-size: 13px; font-family: Poppins, sans-serif;
+  color: var(--text); background: var(--white); outline: none;
+  transition: border 0.15s;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-color: var(--primary); }
+
+/* CHAT */
+.chat-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid var(--border); cursor: pointer;
+}
+.chat-item:last-child { border-bottom: none; }
+.chat-item:hover { background: var(--primary-xlight); border-radius: 9px; padding-left: 8px; }
+.chat-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--primary-xlight); border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--primary); flex-shrink: 0;
+}
+.chat-name { font-size: 13px; font-weight: 700; }
+.chat-preview { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.chat-time { font-size: 10px; color: var(--muted); margin-left: auto; white-space: nowrap; }
+
+/* CHAT MESSAGES */
+.msg { display: flex; margin-bottom: 10px; }
+.msg.me { justify-content: flex-end; }
+.msg-bubble {
+  max-width: 70%; padding: 9px 13px;
+  border-radius: 12px; font-size: 13px; line-height: 1.5;
+}
+.msg.them .msg-bubble { background: var(--bg); border: 1px solid var(--border); border-bottom-left-radius: 3px; }
+.msg.me  .msg-bubble { background: var(--primary); color: white; border-bottom-right-radius: 3px; }
+
+/* STUDENT COMPARE */
+.student-row td { vertical-align: middle; }
+.flag-btn { background: none; border: none; cursor: pointer; font-size: 16px; padding: 2px 5px; }
+.flag-btn.flagged { color: #EF4444; }
+.flag-btn:not(.flagged) { color: var(--muted); }
+

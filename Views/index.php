@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="../CSS/home.css">
-  <link rel="stylesheet" href="../CSS/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/global.css">
    <title>Jobify</title>
-  <link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="materials/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -16,7 +16,7 @@
   <header class="main-header">
     <!-- Logo -->
     <div class="logo">
-      <a href="home.html">
+      <a href="index.php">
         <span style="color: #8b5cf6;">Jobify</span>
       </a>
     </div>
@@ -24,8 +24,8 @@
     <nav>
       <div class="pages-section">
         <ul>
-          <li><a class="active" href="home.html">HOME</a></li>
-          <li><a href="jobs.html">FIND JOBS</a></li>
+          <li><a class="active" href="index.php">HOME</a></li>
+          <li><a href="Jobs/jobs.html">FIND JOBS</a></li>
           <li><a href="event.html">EVENTS</a></li>
           <li><a href="contact.html">CONTACT US</a></li>
         </ul>
@@ -33,10 +33,10 @@
       <div class="regist">
         <ul>
           <li>
-            <a href="register.html">REGISTER</a></i>
+            <a href="Authentication/register.php">REGISTER</a></i>
           </li>
           <li>
-            <a href="login.html">LOGIN</a></i>
+            <a href="Authentication/login.php">LOGIN</a></i>
           </li>
         </ul>
       </div>
@@ -51,7 +51,7 @@
     </div>
     <p>Connect with leading employers at the University Career Fair</p>
     <p>and build your dream career</p>
-    <a href="shopping.html">Browse Jobs</a>
+    <a href="Jobs/jobs.html">Browse Jobs</a>
     <div class="stats">
       <div class="stat">
         <span class="number">
@@ -82,7 +82,7 @@
   </div>
 
   <div class="about-img">
-    <img src="../materials/logo.png" alt="about jobify">
+    <img src="materials/logo.png" alt="about jobify">
   </div>
 </section>
 <section class="events-section">
@@ -91,32 +91,32 @@
   <div class="events-container">
 
     <div class="event-card">
-      <img src="../materials/event3.png" alt="">
+      <img src="materials/event3.png" alt="">
       <div class="content">
         <p>Jobify Annual Career Fair</p>
-        <a href="events.html" class="btn">See More</a>
+        <a href="event.html" class="btn">See More</a>
       </div>
     </div>
     <div class="event-card">
-      <img src="../materials/event4.png" alt="">
+      <img src="materials/event4.png" alt="">
       <div class="content">
         <p>Jobify Annual Career Fair in Cairo</p>
-        <a href="events.html" class="btn">See More</a>
+        <a href="event.html" class="btn">See More</a>
       </div>
     </div>
     <div class="event-card">
-      <img src="../materials/event2.png" alt="">
+      <img src="materials/event2.png" alt="">
       <div class="content">
         <p>Jobify Career Fair For Special Needs</p>
-        <a href="events.html" class="btn">See More</a>
+        <a href="event.html" class="btn">See More</a>
       </div>
     </div>
 
     <div class="event-card">
-      <img src="../materials/event1.png" alt="">
+      <img src="materials/event1.png" alt="">
       <div class="content">
         <p>Jobify Career Fair in Alexandria</p>
-        <a href="events.html" class="btn">See More</a>
+        <a href="event.html" class="btn">See More</a>
       </div>
     </div>
 
@@ -131,7 +131,7 @@
   <div class="recruiters-container">
 
     <div class="recruiter-card">
-      <img src="../materials/recruiter1png.png" alt="">
+      <img src="materials/recruiter1png.png" alt="">
       <div class="content">
         <h3>Mohamed El-Sayed Ali-OUD Egypt</h3>
         <p>"We found highly qualified candidates through Jobify. The platform is very efficient."</p>
@@ -139,7 +139,7 @@
     </div>
 
     <div class="recruiter-card">
-      <img src="../materials/recruiter3.png" alt="">
+      <img src="materials/recruiter3.png" alt="">
       <div class="content">
         <h3>Ahmed Khaled Mahmoud-UX Centers</h3>
         <p>"A great experience hiring fresh talent. The process is smooth and fast."</p>
@@ -147,7 +147,7 @@
     </div>
 
     <div class="recruiter-card">
-      <img src="../materials/recruiter2.png" alt="">
+      <img src="materials/recruiter2.png" alt="">
       <div class="content">
         <h3>Sara Abdelrahman-MP Hotels</h3>
         <p>"One of the best recruitment events we've used for finding top candidates."</p>
@@ -158,12 +158,12 @@
 
 </section>
   <section class="app-banner">
-  <img src="../materials/appbanner.png" alt="">
+  <img src="materials/appbanner.png" alt="">
   <button class="download-btn">Download Now</button>
 </section>
 <section class="Partners">
   <h1>Our Partners</h1>
-  <img src="../materials/partners.png" alt="partners">
+  <img src="materials/partners.png" alt="partners">
 </section>
 <section class="signup-section">
   
@@ -196,7 +196,7 @@
     </div>
     <div class="explore">
       <h3>Explore</h3>
-      <a href="jobs.html">Browse Jobs</a>
+      <a href="Jobs/jobs.html">Browse Jobs</a>
       <a href="event.html">Carrer Events</a>
       <a href="#">Partners</a>
       <a href="#">About us</a>
@@ -204,10 +204,10 @@
     </div>
     <div class="useracc">
       <h3>My Account</h3>
-      <a href="login.html">Sign in</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="Authentication/login.php">Sign in</a>
+      <a href="Student/studentdashboard.html">Dashboard</a>
       <a href="contact.html">Help</a>
-      <a href="register.html">Sign up</a>
+      <a href="Authentication/register.php">Sign up</a>
     </div>
     <div class="legal">
       <h3>Legal</h3>
@@ -220,11 +220,11 @@
       <h3>Our App</h3>
       <p>Download it now from</p>
       <div class="install">
-        <img src="../materials/play.jpg" alt="google play">
-        <img src="../materials/app.jpg" alt="app store">
+        <img src="materials/play.jpg" alt="google play">
+        <img src="materials/app.jpg" alt="app store">
       </div>
       <p>Multiple secured payment</p>
-      <img src="../materials/pay.png" alt="payment">
+      <img src="materials/pay.png" alt="payment">
     </div>
     <div class="copyrights">
       © 2026 Jobify. All rights reserved.

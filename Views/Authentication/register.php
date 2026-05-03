@@ -1,7 +1,46 @@
 <?php
-  include_once 'DB.php';
-  $db = new DB('virtual_fair');
-  $db->connect();
+  require_once '../../Controllers/AuthController.php';
+  $auth = new AuthController();
+  $errorMsg = '';
+  
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $name = $_POST['username'] ?? '';
+      $email = $_POST['email'] ?? '';
+      $password = $_POST['password'] ?? '';
+      $confirmedPassword = $_POST['confirm_password'] ?? '';
+      
+      // $role = $_POST['role'] ?? '';
+      
+      if (!empty($name) && !empty($email) && !empty($password) && !empty($confirmedPassword)) {
+        if ($password === $confirmedPassword) 
+        {
+          if (strlen($password) < 10)
+          {
+            $errorMsg = 'Password must be at least 10 characters';
+          }
+          else 
+          {
+            if ($auth->register($name, $email, $password)) 
+            {
+              header('Location: login.php');
+              exit();
+            } 
+            else 
+            {
+              $errorMsg = 'Registration failed. Email might already exist or a database error occurred.';
+            }
+          }
+        }
+        else 
+        {
+          $errorMsg = 'There is mismatch in passwords';
+        }
+      } 
+      else 
+      {
+        $errorMsg = 'Please fill out all required fields.';
+      }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +60,7 @@
   <!-- Header -->
   <header class="main-header">
     <div class="logo">
-      <a href="home.html">
+      <a href="../index.php">
         <span>Jobify</span>
       </a>
     </div>
@@ -29,17 +68,17 @@
     <nav>
       <div class="pages-section">
         <ul>
-          <li><a href="home.html">HOME</a></li>
-          <li><a href="jobs.html">FIND JOBS</a></li>
-          <li><a href="event.html">EVENTS</a></li>
-          <li><a href="contact.html">CONTACT US</a></li>
+          <li><a href="../index.php">HOME</a></li>
+          <li><a href="../Jobs/jobs.html">FIND JOBS</a></li>
+          <li><a href="../event.html">EVENTS</a></li>
+          <li><a href="../contact.html">CONTACT US</a></li>
         </ul>
       </div>
 
       <div class="regist">
         <ul>
-          <li><a class="active" href="register.html">REGISTER</a></li>
-          <li><a href="login.html">LOGIN</a></li>
+          <li><a class="active" href="../Authentication/register.php">REGISTER</a></li>
+          <li><a href="../Authentication/login.php">LOGIN</a></li>
         </ul>
       </div>
     </nav>
@@ -52,7 +91,7 @@
       <div class="left">
         <h2>Sign up</h2>
 
-        <form action="#" method="">
+        <form action="" method="POST">
 
           <input type="text" name="username" placeholder="Username" >
 
@@ -62,27 +101,25 @@
 
           <input type="password" name="confirm_password" placeholder="Confirm Password" >
 
-          <select name="role" >
+          <!-- <select name="role" >
             <option value="" disabled selected>Select Role</option>
             <option value="student">Student</option>
             <option value="admin">Admin</option>
             <option value="alumni">Alumni</option>
             <option value="recruiter">Recruiter</option>
-          </select>
+          </select> -->
 
           <button type="submit" class="register-btn">Register</button>
 
         </form>
 
-        <div class="alerts">
-          <div class="blank-inputs-alert">Some inputs are blank</div>
-          <div class="mismatch-password-alert">There is a password mismatch</div>
-          <div class="length-password-alert">Password must be at least 10 characters</div>
-          <div class="invalid-email-alert">Invalid email</div>
-        </div>
+        <?php if (!empty($errorMsg)): ?>
+            <p style="color: red; margin-top: 10px; text-align: center;"><?= htmlspecialchars($errorMsg) ?></p>
+        <?php endif; ?>
+
 
         <p class="login-link">
-          Already have an account? <a href="login.html">Login here</a>
+          Already have an account? <a href="../Authentication/login.php">Login here</a>
         </p>
       </div>
 
@@ -90,7 +127,7 @@
 
     </div>
   </section>
-  <script>
+  <!-- <script>
 
     const form = document.querySelector('form');
     const [
@@ -157,6 +194,6 @@
         else blankInputsAlert.style.display = 'block';
       });
 
-  </script>
+  </script> -->
 </body>
 </html>
