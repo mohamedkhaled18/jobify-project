@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Your Dashboard</title>
+<link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/globaldashboard.css">
+<link rel="stylesheet" href="../CSS/recruiterdashboard.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2><a href="home.html">Jobify</a></h2>
+  <nav class="nav">
+    <div class="nav-section">Main</div>
+    <div class="nav-item active" onclick="show('dashboard')"><i class="fas fa-th-large"></i> Dashboard</div>
+    <div class="nav-item" onclick="show('profile')"><i class="fas fa-user-circle"></i> My Profile</div>
+    <div class="nav-item" onclick="show('company')"><i class="fas fa-building"></i> Company Info</div>
+
+    <div class="nav-section">Jobs</div>
+    <div class="nav-item" onclick="show('post')"><i class="fas fa-plus-circle"></i> Post a Job</div>
+    <div class="nav-item" onclick="show('myjobs')"><i class="fas fa-briefcase"></i> My Posts <span class="badge">4</span></div>
+
+    <div class="nav-section">Applicants</div>
+    <div class="nav-item" onclick="show('chats')"><i class="fas fa-comments"></i> Chat Sessions <span class="badge">6</span></div>
+    <div class="nav-item" onclick="show('compare')"><i class="fas fa-balance-scale"></i> Compare & Select</div>
+    <div class="nav-item" onclick="show('flagged')"><i class="fas fa-flag"></i> Flagged Students <span class="badge">3</span></div>
+
+    <div class="nav-section">Other</div>
+    <div class="nav-item" onclick="show('inbox')"><i class="fas fa-inbox"></i> Inbox <span class="badge">2</span></div>
+    <div class="nav-item"><i class="fas fa-cog"></i> Settings</div>
+  </nav>
+
+  <div style="padding: 0 8px 8px">
+    <div class="sidebar-user" onclick="show('profile')">
+      <div class="avatar"></div>
+      <div>
+        <strong>Sara Hassan</strong>
+        <span>HR · TechCorp Egypt</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <header class="topbar">
+    <div>
+      <h1 id="page-title">Dashboard</h1>
+      <p id="page-sub">Welcome back, Sara!</p>
+    </div>
+    <div class="topbar-btns">
+      <button class="tb-btn" onclick="show('inbox')" title="Inbox">
+        <i class="fas fa-inbox"></i><span class="dot"></span>
+      </button>
+      <button class="tb-btn" onclick="show('profile')" title="Profile" style="background:var(--primary-xlight)">
+        <i class="fas fa-user" style="color:var(--primary)"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <div id="sec-dashboard">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-icon purple"><i class="fas fa-briefcase"></i></div>
+          <div><div class="stat-label">Active Posts</div><div class="stat-value">4</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+          <div><div class="stat-label">Applicants</div><div class="stat-value">24</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon green"><i class="fas fa-flag"></i></div>
+          <div><div class="stat-label">Flagged</div><div class="stat-value">3</div></div>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-avatar">SH</div>
+        <div>
+          <h2>Sara Hassan Ahmed</h2>
+          <div class="role">HR Recruiter · TechCorp Egypt</div>
+          <div class="meta">5 Years Experience · IT Sector</div>
+          <div class="chips">
+            <div class="chip"><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</div>
+            <div class="chip"><i class="fas fa-envelope"></i> sara@techcorp.com</div>
+            <div class="chip"><i class="fas fa-phone"></i> +20 100 111 2222</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title">Recent Posts</div><div class="card-sub">Latest job listings</div></div>
+            <div class="card-link" onclick="show('myjobs')">View All</div>
+          </div>
+          <div id="posts-dash"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title">Recent Chats</div><div class="card-sub">Latest student sessions</div></div>
+            <div class="card-link" onclick="show('chats')">View All</div>
+          </div>
+          <div id="chats-dash"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div id="sec-profile" style="display:none">
+      <div class="hero" style="margin-bottom:18px">
+        <div class="hero-avatar">SH</div>
+        <div>
+          <h2>Sara Hassan Ahmed</h2>
+          <div class="role">HR Recruiter</div>
+          <div class="meta">TechCorp Egypt · 5 Years Experience</div>
+          <div class="chips">
+            <div class="chip"><i class="fas fa-map-marker-alt"></i> Cairo</div>
+            <div class="chip"><i class="fas fa-envelope"></i> sara@techcorp.com</div>
+            <div class="chip"><i class="fab fa-linkedin"></i> linkedin/sara</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="card-title">Personal Information</div><div class="card-link"><i class="fas fa-edit"></i> Edit</div></div>
+        <div class="info-grid">
+          <div class="info-field"><label>Full Name</label><span>Sara Hassan Ahmed</span></div>
+          <div class="info-field"><label>Job Title</label><span>HR Recruiter</span></div>
+          <div class="info-field"><label>Email</label><span>sara@techcorp.com</span></div>
+          <div class="info-field"><label>Phone</label><span>+20 100 111 2222</span></div>
+          <div class="info-field"><label>Department</label><span>Human Resources</span></div>
+          <div class="info-field"><label>Experience</label><span>5 Years</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPANY INFO -->
+    <div id="sec-company" style="display:none">
+      <div class="card">
+        <div class="card-head"><div class="card-title">Company Information</div><div class="card-link"><i class="fas fa-edit"></i> Edit</div></div>
+        <div class="info-grid">
+          <div class="info-field"><label>Company Name</label><span>TechCorp Egypt</span></div>
+          <div class="info-field"><label>Industry</label><span>Information Technology</span></div>
+          <div class="info-field"><label>Size</label><span>200–500 Employees</span></div>
+          <div class="info-field"><label>Location</label><span>Cairo, Egypt</span></div>
+          <div class="info-field"><label>Website</label><span>techcorp.com.eg</span></div>
+          <div class="info-field"><label>Founded</label><span>2010</span></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="info-field"><label>About</label></div>
+          <p style="font-size:13px;line-height:1.8;color:var(--text);margin-top:6px;padding:10px;background:var(--bg);border-radius:7px;border:1px solid var(--border)">
+            TechCorp Egypt is a leading IT solutions company providing software development, cloud services, and AI solutions across the MENA region.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST A JOB -->
+    <div id="sec-post" style="display:none">
+      <div class="card">
+        <div class="card-head"><div class="card-title">Post a New Job</div><div class="card-sub">Will appear in Find Jobs page</div></div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Job Title</label>
+            <input type="text" placeholder="e.g. Backend Developer" id="f-title">
+          </div>
+          <div class="form-field">
+            <label>Job Type</label>
+            <select id="f-type">
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Internship</option>
+              <option>Remote</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Location</label>
+            <input type="text" placeholder="e.g. Cairo, Egypt" id="f-loc">
+          </div>
+          <div class="form-field">
+            <label>Salary Range</label>
+            <input type="text" placeholder="e.g. 8,000 – 12,000 EGP" id="f-salary">
+          </div>
+          <div class="form-field" style="grid-column:1/-1">
+            <label>Description</label>
+            <textarea rows="4" placeholder="Describe the role, responsibilities..." id="f-desc"></textarea>
+          </div>
+          <div class="form-field" style="grid-column:1/-1">
+            <label>Required Skills (comma separated)</label>
+            <input type="text" placeholder="e.g. Python, Django, PostgreSQL" id="f-skills">
+          </div>
+        </div>
+        <button class="btn-primary" style="margin-top:14px" onclick="submitPost()"><i class="fas fa-paper-plane"></i> Publish Job</button>
+        <div id="post-msg" style="display:none;margin-top:10px;color:#059669;font-size:13px;font-weight:600"><i class="fas fa-check-circle"></i> Job published successfully!</div>
+      </div>
+    </div>
+
+    <!-- MY POSTS -->
+    <div id="sec-myjobs" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">My Job Posts</div><div class="card-sub">4 active listings</div></div>
+          <div class="card-link" onclick="show('post')" style="background:var(--primary);color:white;border-color:var(--primary)"><i class="fas fa-plus"></i> New Post</div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Job Title</th><th>Type</th><th>Applicants</th><th>Status</th><th>Posted</th><th>Actions</th></tr></thead>
+          <tbody id="myjobs-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CHAT SESSIONS -->
+    <div id="sec-chats" style="display:none">
+      <div class="card">
+        <div class="card-head"><div><div class="card-title">Chat Sessions</div><div class="card-sub">All student conversations</div></div></div>
+        <div id="chats-full"></div>
+      </div>
+
+      <!-- CHAT VIEW -->
+      <div id="chat-view" style="display:none">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title" id="chat-view-name">Chat with Ahmed</div>
+              <div class="card-sub" id="chat-view-job">Backend Developer</div>
+            </div>
+            <div class="card-link" onclick="closeChat()"><i class="fas fa-arrow-left"></i> Back</div>
+          </div>
+          <div id="chat-messages" style="max-height:320px;overflow-y:auto;padding:4px 0;margin-bottom:14px"></div>
+          <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;gap:8px">
+            <input type="text" id="chat-input" placeholder="Type a message..." style="flex:1;padding:9px 13px;border:1px solid var(--border);border-radius:9px;font-size:13px;font-family:Poppins,sans-serif;outline:none" onkeydown="if(event.key==='Enter')sendMsg()">
+            <button class="btn-primary" onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARE & SELECT -->
+    <div id="sec-compare" style="display:none">
+      <div class="card">
+        <div class="card-head"><div><div class="card-title">Compare & Select Students</div><div class="card-sub">Review and shortlist candidates</div></div></div>
+        <table class="table">
+          <thead><tr><th>Student</th><th>GPA</th><th>Skills</th><th>Applied For</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="compare-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FLAGGED -->
+    <div id="sec-flagged" style="display:none">
+      <div class="card">
+        <div class="card-head"><div><div class="card-title">Flagged Students</div><div class="card-sub">Shortlisted candidates</div></div></div>
+        <div id="flagged-list"></div>
+      </div>
+    </div>
+
+    <!-- INBOX -->
+    <div id="sec-inbox" style="display:none">
+      <div class="card">
+        <div class="card-head"><div><div class="card-title">Inbox</div><div class="card-sub">Messages & Notifications</div></div></div>
+
+        <div class="inbox-item">
+          <div class="inbox-icon"><i class="fas fa-user-graduate"></i></div>
+          <div style="flex:1">
+            <div class="inbox-text"><strong>Ahmed Mohamed</strong> — New Application</div>
+            <div class="inbox-sub">I applied for the Backend Developer position. Please review my CV...</div>
+            <div class="inbox-time">1 hour ago · Message</div>
+          </div>
+          <div class="unread-dot"></div>
+        </div>
+
+        <div class="inbox-item">
+          <div class="inbox-icon"><i class="fas fa-user-graduate"></i></div>
+          <div>
+            <div class="inbox-text"><strong>Nour Ali</strong> — Follow Up</div>
+            <div class="inbox-sub">Just wanted to follow up on my application for ML Engineer...</div>
+            <div class="inbox-time">3 hours ago · Message</div>
+          </div>
+        </div>
+
+        <div class="inbox-item">
+          <div class="inbox-icon"><i class="fas fa-bell"></i></div>
+          <div>
+            <div class="inbox-text">5 new applicants for <strong>Backend Developer</strong></div>
+            <div class="inbox-time">Yesterday · Notification</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ACCEPT MODAL -->
+<div class="overlay" id="acceptOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Send Acceptance Message</h3>
+      <span class="modal-close" onclick="closeAccept()"><i class="fas fa-times"></i></span>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Send acceptance email to: <strong id="accept-name"></strong></p>
+    <textarea id="accept-msg" rows="5" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:9px;font-size:13px;font-family:Poppins,sans-serif;resize:none;outline:none;margin-bottom:12px">Congratulations! We are pleased to inform you that you have been selected for the position. Please contact us to discuss the next steps.</textarea>
+    <button class="btn-primary" onclick="sendAccept()"><i class="fas fa-paper-plane"></i> Send Acceptance</button>
+    <div id="accept-done" style="display:none;margin-top:10px;color:#059669;font-size:13px;font-weight:600"><i class="fas fa-check-circle"></i> Message sent!</div>
+  </div>
+</div>
+
+<script src="../JS/recruiterdashboard.js"></script>
+</body>
+</html>

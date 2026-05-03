@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Your Dashboard</title>
+<link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/admindashboard.css">
+<link rel="stylesheet" href="../css/globaldashboard.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2><a href="home.html">Jobify</a></h2>
+
+  <nav class="nav">
+    <div class="nav-section">Main</div>
+    <div class="nav-item active" onclick="show('dashboard')"><i class="fas fa-th-large"></i> Dashboard</div>
+
+    <div class="nav-section">Users</div>
+    <div class="nav-item" onclick="show('students')"><i class="fas fa-user-graduate"></i> Students <span class="badge" id="badge-students">0</span></div>
+    <div class="nav-item" onclick="show('recruiters')"><i class="fas fa-briefcase"></i> Recruiters <span class="badge" id="badge-recruiters">0</span></div>
+    <div class="nav-item" onclick="show('blacklist')"><i class="fas fa-ban"></i> Blacklist <span class="badge" id="badge-blacklist">0</span></div>
+
+    <div class="nav-section">Jobs</div>
+    <div class="nav-item" onclick="show('pending')"><i class="fas fa-clock"></i> Pending Posts <span class="badge" id="badge-pending">0</span></div>
+    <div class="nav-item" onclick="show('alljobs')"><i class="fas fa-list-alt"></i> All Job Posts</div>
+
+    <div class="nav-section">Events</div>
+    <div class="nav-item" onclick="show('events')"><i class="fas fa-calendar-alt"></i> Manage Events</div>
+    <div class="nav-item" onclick="show('new-event')"><i class="fas fa-plus-circle"></i> New Event</div>
+
+    <div class="nav-section">Support</div>
+    <div class="nav-item" onclick="show('complaints')"><i class="fas fa-exclamation-circle"></i> Complaints <span class="badge" id="badge-complaints">0</span></div>
+    <div class="nav-item" onclick="show('inbox')"><i class="fas fa-inbox"></i> Inbox <span class="badge" id="badge-inbox">0</span></div>
+
+    <div class="nav-section">Other</div>
+    <div class="nav-item"><i class="fas fa-cog"></i> Settings</div>
+  </nav>
+
+  <div style="padding: 0 8px 8px">
+    <div class="sidebar-user">
+      <div class="avatar"></div>
+      <div>
+        <strong>Super Admin</strong>
+        <span>System Administrator</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div>
+      <h1 id="page-title">Dashboard</h1>
+      <p id="page-sub">Welcome back, Admin!</p>
+    </div>
+    <div class="topbar-btns">
+      <button class="tb-btn" onclick="show('complaints')" title="Complaints">
+        <i class="fas fa-exclamation-circle"></i><span class="dot"></span>
+      </button>
+      <button class="tb-btn" onclick="show('inbox')" title="Inbox">
+        <i class="fas fa-inbox"></i><span class="dot"></span>
+      </button>
+      <button class="tb-btn" style="background:var(--primary-xlight)">
+        <i class="fas fa-user-shield" style="color:var(--primary)"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <div id="sec-dashboard">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+          <div><div class="stat-label">Total Students</div><div class="stat-value" id="stat-students">0</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon blue"><i class="fas fa-briefcase"></i></div>
+          <div><div class="stat-label">Total Recruiters</div><div class="stat-value" id="stat-recruiters">0</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon green"><i class="fas fa-list-alt"></i></div>
+          <div><div class="stat-label">Active Jobs</div><div class="stat-value" id="stat-jobs">0</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
+          <div><div class="stat-label">Pending Posts</div><div class="stat-value" id="stat-pending">0</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon red"><i class="fas fa-exclamation-circle"></i></div>
+          <div><div class="stat-label">Complaints</div><div class="stat-value" id="stat-complaints">0</div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon dark"><i class="fas fa-ban"></i></div>
+          <div><div class="stat-label">Blacklisted</div><div class="stat-value" id="stat-blacklist">0</div></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title">Pending Job Posts</div><div class="card-sub">Awaiting approval</div></div>
+            <div class="card-link" onclick="show('pending')">View All</div>
+          </div>
+          <div id="pending-dash"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title">Recent Complaints</div><div class="card-sub">Unresolved issues</div></div>
+            <div class="card-link" onclick="show('complaints')">View All</div>
+          </div>
+          <div id="complaints-dash"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Recent Inbox</div><div class="card-sub">Latest messages</div></div>
+          <div class="card-link" onclick="show('inbox')">View All</div>
+        </div>
+        <div id="inbox-dash"></div>
+      </div>
+    </div>
+
+    <!-- STUDENTS -->
+    <div id="sec-students" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Students</div><div class="card-sub">All registered students</div></div>
+          <input class="search-input" type="text" placeholder="Search students..." oninput="filterTable('students-table', this.value)">
+        </div>
+        <table class="table" id="students-table">
+          <thead><tr><th>Name</th><th>University</th><th>Email</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="students-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- RECRUITERS -->
+    <div id="sec-recruiters" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Recruiters / HR</div><div class="card-sub">All registered companies</div></div>
+          <input class="search-input" type="text" placeholder="Search recruiters..." oninput="filterTable('recruiters-table', this.value)">
+        </div>
+        <table class="table" id="recruiters-table">
+          <thead><tr><th>Name</th><th>Company</th><th>Email</th><th>Joined</th><th>Posts</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="recruiters-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BLACKLIST -->
+    <div id="sec-blacklist" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title"><i class="fas fa-ban" style="color:#EF4444;margin-right:7px"></i>Blacklist</div><div class="card-sub">Banned accounts</div></div>
+        </div>
+        <table class="table" id="blacklist-table">
+          <thead><tr><th>Name</th><th>Type</th><th>Email</th><th>Banned On</th><th>Reason</th><th>Actions</th></tr></thead>
+          <tbody id="blacklist-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PENDING POSTS -->
+    <div id="sec-pending" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Pending Job Posts</div><div class="card-sub">Review before publishing</div></div>
+        </div>
+        <div id="pending-full"></div>
+      </div>
+    </div>
+
+    <!-- ALL JOBS -->
+    <div id="sec-alljobs" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">All Job Posts</div><div class="card-sub">Manage published jobs</div></div>
+          <input class="search-input" type="text" placeholder="Search jobs..." oninput="filterTable('jobs-table', this.value)">
+        </div>
+        <table class="table" id="jobs-table">
+          <thead><tr><th>Job Title</th><th>Company</th><th>Type</th><th>Location</th><th>Posted</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="jobs-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- EVENTS -->
+    <div id="sec-events" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Events</div><div class="card-sub">All published events</div></div>
+          <div class="card-link" onclick="show('new-event')"><i class="fas fa-plus"></i> New Event</div>
+        </div>
+        <div id="events-list"></div>
+      </div>
+    </div>
+
+    <!-- NEW EVENT -->
+    <div id="sec-new-event" style="display:none">
+      <div class="card" style="max-width:640px">
+        <div class="card-head">
+          <div><div class="card-title"><i class="fas fa-plus-circle" style="color:var(--primary);margin-right:7px"></i>Create New Event</div><div class="card-sub">Announce a job fair or event</div></div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group" style="grid-column:1/-1">
+            <label>Event Title</label>
+            <input type="text" class="form-input" id="ev-title" placeholder="e.g. Spring Job Fair 2025">
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="form-input" id="ev-date">
+          </div>
+          <div class="form-group">
+            <label>Time</label>
+            <input type="time" class="form-input" id="ev-time">
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-input" id="ev-location" placeholder="e.g. Cairo University Hall">
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select class="form-input" id="ev-type">
+              <option>Job Fair</option>
+              <option>Workshop</option>
+              <option>Seminar</option>
+              <option>Networking</option>
+              <option>Career Day</option>
+            </select>
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label>Description</label>
+            <textarea class="form-input" id="ev-desc" rows="4" placeholder="Write a brief description about this event..."></textarea>
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label>Target Audience</label>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+              <label class="check-label"><input type="checkbox" id="ev-students" checked> Students</label>
+              <label class="check-label"><input type="checkbox" id="ev-recruiters"> Recruiters</label>
+              <label class="check-label"><input type="checkbox" id="ev-public"> General Public</label>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:6px">
+          <button class="btn-primary" onclick="publishEvent()"><i class="fas fa-paper-plane"></i> Publish Event</button>
+          <button class="btn-secondary" onclick="show('events')">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLAINTS -->
+    <div id="sec-complaints" style="display:none">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Complaints</div><div class="card-sub">User-submitted issues</div></div>
+        </div>
+        <div id="complaints-full"></div>
+      </div>
+    </div>
+
+    <!-- INBOX -->
+    <div id="sec-inbox" style="display:none">
+      <div class="card">
+        <div class="card-head"><div><div class="card-title">Inbox</div><div class="card-sub">Messages & Notifications</div></div></div>
+        <div id="inbox-full"></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="overlay" id="confirmModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-title">Confirm Action</h3>
+      <span class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></span>
+    </div>
+    <p id="modal-body" style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7"></p>
+    <div style="display:flex;gap:10px">
+      <button class="btn-primary" id="modal-confirm-btn" style="background:#EF4444">Confirm</button>
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- JOB REVIEW MODAL -->
+<div class="overlay" id="reviewModal">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-head">
+      <h3>Review Job Post</h3>
+      <span class="modal-close" onclick="closeReview()"><i class="fas fa-times"></i></span>
+    </div>
+    <div id="review-content" style="font-size:13px;line-height:1.8;margin-bottom:18px"></div>
+    <div style="display:flex;gap:10px">
+      <button class="btn-primary" onclick="approveJob()" style="background:#059669"><i class="fas fa-check"></i> Approve</button>
+      <button class="btn-primary" onclick="rejectJob()" style="background:#EF4444"><i class="fas fa-times"></i> Reject</button>
+      <button class="btn-secondary" onclick="closeReview()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="../JS/admindashboard.js"></script>
+</body>
+</html>
