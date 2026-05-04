@@ -8,7 +8,7 @@ class AuthController {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        $this->db = new DbController('jobify');
+        $this->db = DbController::getInstance('jobify');
     }
 
     public function register($name, $email, $password) {
@@ -35,15 +35,21 @@ class AuthController {
     }
 
     public function login($email, $password) {
-        $results = $this->db->select('users', "email = '$email'");
-        if ($results && count($results) > 0) {
-            $user = $results[0];
-            
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['user_id'];
-                $_SESSION['name'] = $user['name'];
-                $_SESSION['role'] = $user['role'];
-                return $user;
+        $query = "SELECT u.user_id, u.name, u.email, u.password, u.role, u.status, u.account_creation_date, s.gpa, s.major
+                          FROM Users u 
+                          INNER JOIN Students s ON u.user_id = s.student_id 
+                          WHERE u.role = 'student' AND u.email = '$email';";
+        $result = $this->db->query($query);
+        // if ($result) {
+        //     if (password_verify($password, $result['password'])) {
+        //         $_SESSION['user_data'] = $result;
+        //         return $result;
+        //     }   
+        // }
+        if ($result) {
+            if ($password == $result['password']) {
+                $_SESSION['user_data'] = $result;
+                return $result;
             }   
         }
         return false;
@@ -55,6 +61,7 @@ class AuthController {
         }
         session_unset();
         session_destroy();
+        header("Location: ../../Views/Authentication/login.php");
     }
 }
 ?>

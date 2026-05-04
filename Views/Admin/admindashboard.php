@@ -1,8 +1,36 @@
+<?php
+
+include '../../Controllers/DbController.php';
+include '../../Controllers/AuthController.php';
+include '../../Models/Admin.php';
+
+$auth = new AuthController();
+$adminModel = new Admin();
+
+if(isset($_GET["logout"])) {
+  $auth->logout();
+  exit();
+}
+
+  $students_data = $adminModel->getAllStudents();
+  
+  if (!isset($_SESSION['user_data']) || $_SESSION['user_data']['role'] != 'admin') {
+    header("Location: ../../Views/Auth/login.php");
+    exit();
+  }
+
+  $user_data = $_SESSION['user_data'];
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Your Dashboard</title>
+<title>Admin Dashboard</title>
 <link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -20,7 +48,7 @@
     <div class="nav-item active" onclick="show('dashboard')"><i class="fas fa-th-large"></i> Dashboard</div>
 
     <div class="nav-section">Users</div>
-    <div class="nav-item" onclick="show('students')"><i class="fas fa-user-graduate"></i> Students <span class="badge" id="badge-students">0</span></div>
+    <div class="nav-item" onclick="show('students')"><i class="fas fa-user-graduate"></i> Students <span class="badge" id="badge-students"><?= count($students_data) ?></span></div>
     <div class="nav-item" onclick="show('recruiters')"><i class="fas fa-briefcase"></i> Recruiters <span class="badge" id="badge-recruiters">0</span></div>
     <div class="nav-item" onclick="show('blacklist')"><i class="fas fa-ban"></i> Blacklist <span class="badge" id="badge-blacklist">0</span></div>
 
@@ -37,7 +65,7 @@
     <div class="nav-item" onclick="show('inbox')"><i class="fas fa-inbox"></i> Inbox <span class="badge" id="badge-inbox">0</span></div>
 
     <div class="nav-section">Other</div>
-    <div class="nav-item"><i class="fas fa-cog"></i> Settings</div>
+    <a href="?logout=1" class="nav-item" id="logout"><i class="fas fa-logout"></i> Logout</a>
   </nav>
 
   <div style="padding: 0 8px 8px">
@@ -81,7 +109,7 @@
       <div class="stats">
         <div class="stat">
           <div class="stat-icon purple"><i class="fas fa-users"></i></div>
-          <div><div class="stat-label">Total Students</div><div class="stat-value" id="stat-students">0</div></div>
+          <div><div class="stat-label">Total Students</div><div class="stat-value" id="stat-students"><?= count($students_data) ?></div></div>
         </div>
         <div class="stat">
           <div class="stat-icon blue"><i class="fas fa-briefcase"></i></div>
@@ -140,8 +168,21 @@
           <input class="search-input" type="text" placeholder="Search students..." oninput="filterTable('students-table', this.value)">
         </div>
         <table class="table" id="students-table">
-          <thead><tr><th>Name</th><th>University</th><th>Email</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
-          <tbody id="students-tbody"></tbody>
+          <thead><tr><th>Name</th><th>Email</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="students-tbody">
+              <tr>
+                <td><strong>${s.name}</strong></td>
+                <td>${s.university}</td>
+                <td>${s.email}</td>
+                <td>${s.joined}</td>
+                <td><span class="badge2 ${s.status === 'active' ? 'active' : 'archived'}">${s.status === 'active' ? 'Active' : 'Banned'}</span></td>
+              <td>
+                <button class="icon-btn" title="View Profile"><i class="fas fa-eye"></i></button>
+                <button class="icon-btn" title="Blacklist" style="color:#F59E0B" onclick="banUser(${s.id},'student','${s.name}')"><i class="fas fa-ban"></i></button>
+                <button class="icon-btn" title="Delete" style="color:#EF4444" onclick="confirmDelete('student',${s.id},'${s.name}')"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -155,7 +196,9 @@
         </div>
         <table class="table" id="recruiters-table">
           <thead><tr><th>Name</th><th>Company</th><th>Email</th><th>Joined</th><th>Posts</th><th>Status</th><th>Actions</th></tr></thead>
-          <tbody id="recruiters-tbody"></tbody>
+          <tbody id="recruiters-tbody">
+
+          </tbody>
         </table>
       </div>
     </div>

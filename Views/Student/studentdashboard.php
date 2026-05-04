@@ -1,8 +1,28 @@
+<?php
+
+require_once '../../Controllers/AuthController.php';
+$auth = new AuthController();
+
+if(isset($_GET["logout"])) {
+  $auth->logout();
+  exit();
+}
+
+  if (!isset($_SESSION['user_data']) || $_SESSION['user_data']['role'] != 'student') {
+    header("Location: ../../Views/Auth/login.php");
+    exit();
+  }
+
+  $user_data = $_SESSION['user_data'];
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Your Dashboard</title>
+<title>Applicant Dashboard</title>
 <link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -32,15 +52,15 @@
     <div class="nav-section">Other</div>
     <div class="nav-item" onclick="show('inbox')"><i class="fas fa-inbox"></i> Inbox <span class="badge">3</span></div>
     <div class="nav-item" onclick="openQR()"><i class="fas fa-qrcode"></i> My QR Code</div>
-    <div class="nav-item"><i class="fas fa-cog"></i> Settings</div>
+    <a href="?logout=1" class="nav-item" id="logout"><i class="fas fa-logout"></i> Logout</a>
   </nav>
 
   <div style="padding: 0 8px 8px">
     <div class="sidebar-user" onclick="show('profile')">
       <div class="avatar"></div>
       <div>
-        <strong>Ahmed Mohamed</strong>
-        <span>CS Student · Cairo Uni</span>
+        <strong><?= $user_data['name'] ?></strong>
+        <span><?= $user_data['major'] ?> Student</span>
       </div>
     </div>
   </div>
@@ -53,7 +73,7 @@
   <header class="topbar">
     <div>
       <h1 id="page-title">Dashboard</h1>
-      <p id="page-sub">Welcome back, Ahmed!</p>
+      <p id="page-sub">Welcome back, <?= $user_data['name'] ?>!</p>
     </div>
     <div class="topbar-btns">
       <button class="tb-btn" onclick="show('inbox')" title="Inbox">
@@ -88,13 +108,12 @@
       <div class="hero">
         <div class="hero-avatar">AM</div>
         <div>
-          <h2>Ahmed Mohamed Ali</h2>
-          <div class="role">Computer Engineering & AI · Cairo University</div>
-          <div class="meta">4th Year · GPA: 3.7 / 4.0</div>
+          <h2><?= $user_data['name'] ?></h2>
+          <div class="role"><?= $user_data['major'] ?></div>
+          <div class="meta">4th Year · GPA: <?= $user_data['gpa'] ?> / 4.0</div>
           <div class="chips">
             <div class="chip"><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</div>
-            <div class="chip"><i class="fas fa-envelope"></i> ahmed@email.com</div>
-            <div class="chip"><i class="fas fa-phone"></i> +20 100 000 0000</div>
+            <div class="chip"><i class="fas fa-envelope"></i> <?= $user_data['email'] ?></div>
           </div>
         </div>
       </div>
@@ -142,14 +161,12 @@
       <div class="hero" style="margin-bottom:18px">
         <div class="hero-avatar">AM</div>
         <div>
-          <h2>Ahmed Mohamed Ali</h2>
-          <div class="role">Computer Engineering & AI</div>
-          <div class="meta">Cairo University · 4th Year · GPA 3.7</div>
+          <h2><?= $user_data['name'] ?></h2>
+          <div class="role"><?= $user_data['major'] ?></div>
+          <div class="meta">· 4th Year · GPA <?= $user_data['gpa'] ?></div>
           <div class="chips">
             <div class="chip"><i class="fas fa-map-marker-alt"></i> Cairo</div>
-            <div class="chip"><i class="fas fa-envelope"></i> ahmed@email.com</div>
-            <div class="chip"><i class="fab fa-linkedin"></i> linkedin/ahmed</div>
-            <div class="chip"><i class="fab fa-github"></i> github/ahmed</div>
+            <div class="chip"><i class="fas fa-envelope"></i> <?= $user_data['email'] ?></div>
           </div>
         </div>
       </div>
@@ -157,14 +174,13 @@
         <div class="card">
           <div class="card-head"><div class="card-title">Personal Information</div><div class="card-link"><i class="fas fa-edit"></i> Edit</div></div>
           <div class="info-grid">
-            <div class="info-field"><label>Full Name</label><span>Ahmed Mohamed Ali</span></div>
+            <div class="info-field"><label>Full Name</label><span><?= $user_data['name'] ?></span></div>
             <div class="info-field"><label>Date of Birth</label><span>March 15, 2002</span></div>
-            <div class="info-field"><label>Email</label><span>ahmed@email.com</span></div>
+            <div class="info-field"><label>Email</label><span><?= $user_data['email'] ?></span></div>
             <div class="info-field"><label>Phone</label><span>+20 100 000 0000</span></div>
             <div class="info-field"><label>Address</label><span>Cairo, Egypt</span></div>
             <div class="info-field"><label>Nationality</label><span>Egyptian</span></div>
-            <div class="info-field"><label>University</label><span>Cairo University</span></div>
-            <div class="info-field"><label>GPA</label><span>3.7 / 4.0</span></div>
+            <div class="info-field"><label>GPA</label><span><?= $user_data['gpa'] ?> / 4.0</span></div>
           </div>
         </div>
         <div class="card">
@@ -399,3 +415,4 @@
 <script src="../js/studentdashoard.js"></script>
 </body>
 </html>
+

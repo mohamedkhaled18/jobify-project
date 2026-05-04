@@ -1,12 +1,3 @@
-// ===================== DATA =====================
-
-const students = [
-  { id:1, name:"Ahmed Mohamed", university:"Cairo University", email:"ahmed@email.com", joined:"Jan 10, 2025", status:"active" },
-  { id:2, name:"Sara Youssef",   university:"Ain Shams",        email:"sara@email.com",  joined:"Feb 5, 2025",  status:"active" },
-  { id:3, name:"Omar Hassan",    university:"Alexandria Uni",   email:"omar@email.com",  joined:"Mar 1, 2025",  status:"active" },
-  { id:4, name:"Nour Ali",       university:"Helwan Uni",       email:"nour@email.com",  joined:"Mar 20, 2025", status:"active" },
-  { id:5, name:"Karim Saad",     university:"Cairo University", email:"karim@email.com", joined:"Apr 2, 2025",  status:"active" },
-];
 
 const recruiters = [
   { id:1, name:"Hana Khaled",   company:"TechCorp Egypt",  email:"hana@techcorp.com",   joined:"Dec 1, 2024",  posts:8,  status:"active" },
@@ -72,7 +63,7 @@ window.onload = () => {
 };
 
 function updateStats() {
-  document.getElementById('stat-students').textContent   = students.length;
+  // document.getElementById('stat-students').textContent   = students.length;
   document.getElementById('stat-recruiters').textContent = recruiters.length;
   document.getElementById('stat-jobs').textContent       = allJobs.filter(j => j.status === 'active').length;
   document.getElementById('stat-pending').textContent    = pendingPosts.length;
@@ -81,7 +72,7 @@ function updateStats() {
 }
 
 function updateBadges() {
-  document.getElementById('badge-students').textContent   = students.length;
+  // document.getElementById('badge-students').textContent   = students.length;
   document.getElementById('badge-recruiters').textContent = recruiters.length;
   document.getElementById('badge-blacklist').textContent  = blacklist.length;
   document.getElementById('badge-pending').textContent    = pendingPosts.length;
@@ -116,7 +107,7 @@ function show(name) {
 }
 
 // ===================== STUDENTS =====================
-
+/*
 function renderStudents() {
   const tbody = document.getElementById('students-tbody');
   tbody.innerHTML = students.map(s => `
@@ -137,7 +128,7 @@ function renderStudents() {
   // dashboard recent
   document.getElementById('inbox-dash').innerHTML = inboxMessages.slice(0,2).map(inboxItem).join('');
 }
-
+*/
 // ===================== RECRUITERS =====================
 
 function renderRecruiters() {

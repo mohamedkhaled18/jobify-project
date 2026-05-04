@@ -4,7 +4,7 @@
   $auth = new AuthController();
   $errorMsg = '';
 
-  $db = new DbController('jobify');
+  $db = DbController::getInstance('jobify');
   
   if (isset($_POST['email']) && isset($_POST['password']))
   {
@@ -13,17 +13,25 @@
 
     if (!empty($email) && !empty($password))
     {
-      $results = $db->select('users', "email = '$email'");
-      if (count($results) != 0) 
-      {
-
+      $user_data = $auth->login($email, $password);
+      if (!$user_data)
+        $errorMsg = "Wrong Credentials";
+      
+      else {
+        if ($user_data['role'] == 'student')
+          header("Location: ../Student/studentdashboard.php");
+        elseif ($user_data['role'] == 'recruiter')
+          header("Location: ../Recruiter/recruiterdashboard.php");
+        elseif ($user_data['role'] == 'admin')
+          header("Location: ../Admin/admindashboard.php");
+        exit();
       }
-      else $errorMsg = "Wrong Credentials";
     } 
     else {
       $errorMsg = "Email input or password is blank";
     }
   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

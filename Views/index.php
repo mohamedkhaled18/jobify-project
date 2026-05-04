@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  $isLoggedIn = $_SESSION['user_data'] ?? false;
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +10,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/global.css">
-   <title>Jobify</title>
+    <title>Jobify</title>
   <link rel="shortcut icon" href="materials/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -25,11 +30,12 @@
       <div class="pages-section">
         <ul>
           <li><a class="active" href="index.php">HOME</a></li>
-          <li><a href="Jobs/jobs.html">FIND JOBS</a></li>
-          <li><a href="event.html">EVENTS</a></li>
-          <li><a href="contact.html">CONTACT US</a></li>
+          <li><a href="Jobs/jobs.php">FIND JOBS</a></li>
+          <li><a href="event.php">EVENTS</a></li>
+          <li><a href="contact.php">CONTACT US</a></li>
         </ul>
       </div>
+      <?php if (!$isLoggedIn): ?>
       <div class="regist">
         <ul>
           <li>
@@ -40,6 +46,7 @@
           </li>
         </ul>
       </div>
+      <?php endif; ?>
     </nav>
   </header>
 

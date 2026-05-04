@@ -1,8 +1,29 @@
+<?php
+
+require_once '../../Controllers/AuthController.php';
+$auth = new AuthController();
+
+if(isset($_GET["logout"])) {
+  $auth->logout();
+  exit();
+}
+
+  if (!isset($_SESSION['user_data']) || $_SESSION['user_data']['role'] != 'recruiter') {
+    header("Location: ../../Views/Auth/login.php");
+    exit();
+  }
+
+  $user_data = $_SESSION['user_data'];
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Your Dashboard</title>
+<title>Recruiter Dashboard</title>
 <link rel="shortcut icon" href="../materials/logo.png" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -31,7 +52,7 @@
 
     <div class="nav-section">Other</div>
     <div class="nav-item" onclick="show('inbox')"><i class="fas fa-inbox"></i> Inbox <span class="badge">2</span></div>
-    <div class="nav-item"><i class="fas fa-cog"></i> Settings</div>
+    <a href="?logout=1" class="nav-item" id="logout"><i class="fas fa-logout"></i> Logout</a>
   </nav>
 
   <div style="padding: 0 8px 8px">

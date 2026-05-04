@@ -1,5 +1,4 @@
-<<<<<<<< HEAD:Views/css/globaldashboard.css
-   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
   :root {
     --primary: #8b5cf6;
     --primary-dark: #6d28d9;
@@ -388,8 +387,6 @@
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 10px; }
-========
-
   /* SKILLS */
   .tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .skill-tag {
@@ -403,5 +400,3 @@
   .skill-bar-top span:last-child { color: var(--primary); }
   .bar { height: 7px; background: var(--border); border-radius: 10px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
-
->>>>>>>> 8df88c5bed30e4652d2c66f6df91519f439f3d2c:css/studentdashoard.css
