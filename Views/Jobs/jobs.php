@@ -24,8 +24,9 @@
         <ul>
           <li><a href="../index.php">HOME</a></li>
           <li><a class="active" href="../Jobs/jobs.php">FIND JOBS</a></li>
-          <li><a href="../event.html">EVENTS</a></li>
-          <li><a href="../contact.html">CONTACT US</a></li>
+          <li><a href="../events.php">EVENTS</a></li>
+          <li><a href="../contact.php">CONTACT US</a></li>
+          <li><a href="../payment.php">SUBSCRIBE</a></li>
         </ul>
       </div>
       <div class="regist">
@@ -171,7 +172,7 @@
   <div class="explore">
     <h3>Explore</h3>
     <a href="../Jobs/jobs.php">Browse Jobs</a>
-    <a href="../event.html">Career Events</a>
+    <a href="../events.php">Career Events</a>
     <a href="#">Partners</a>
     <a href="#">About us</a>
     <a href="#">Testimonials</a>
@@ -180,7 +181,7 @@
     <h3>My Account</h3>
     <a href="../Authentication/login.php">Sign in</a>
     <a href="../Student/studentdashboard.php">Dashboard</a>
-    <a href="../contact.html">Help</a>
+    <a href="../contact.php">Help</a>
     <a href="../Authentication/register.php">Sign up</a>
   </div>
   <div class="legal">
@@ -188,7 +189,7 @@
     <a href="#">Cookie Policy</a>
     <a href="#">Terms &amp; Conditions</a>
     <a href="#">Privacy Policy</a>
-    <a href="../contact.html">Contact us</a>
+    <a href="../contact.php">Contact us</a>
   </div>
   <div class="app">
     <h3>Our App</h3>

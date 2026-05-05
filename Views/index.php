@@ -31,8 +31,9 @@
         <ul>
           <li><a class="active" href="index.php">HOME</a></li>
           <li><a href="Jobs/jobs.php">FIND JOBS</a></li>
-          <li><a href="event.php">EVENTS</a></li>
+          <li><a href="events.php">EVENTS</a></li>
           <li><a href="contact.php">CONTACT US</a></li>
+          <li><a href="payment.php">SUBSCRIBE</a></li>
         </ul>
       </div>
       <?php if (!$isLoggedIn): ?>
@@ -101,21 +102,21 @@
       <img src="materials/event3.png" alt="">
       <div class="content">
         <p>Jobify Annual Career Fair</p>
-        <a href="event.html" class="btn">See More</a>
+        <a href="events.php" class="btn">See More</a>
       </div>
     </div>
     <div class="event-card">
       <img src="materials/event4.png" alt="">
       <div class="content">
         <p>Jobify Annual Career Fair in Cairo</p>
-        <a href="event.html" class="btn">See More</a>
+        <a href="events.php" class="btn">See More</a>
       </div>
     </div>
     <div class="event-card">
       <img src="materials/event2.png" alt="">
       <div class="content">
         <p>Jobify Career Fair For Special Needs</p>
-        <a href="event.html" class="btn">See More</a>
+        <a href="events.php" class="btn">See More</a>
       </div>
     </div>
 
@@ -123,7 +124,7 @@
       <img src="materials/event1.png" alt="">
       <div class="content">
         <p>Jobify Career Fair in Alexandria</p>
-        <a href="event.html" class="btn">See More</a>
+        <a href="events.php" class="btn">See More</a>
       </div>
     </div>
 
@@ -204,7 +205,7 @@
     <div class="explore">
       <h3>Explore</h3>
       <a href="Jobs/jobs.html">Browse Jobs</a>
-      <a href="event.html">Carrer Events</a>
+      <a href="events.php">Carrer Events</a>
       <a href="#">Partners</a>
       <a href="#">About us</a>
       <a href="#">Testimonials</a>
@@ -213,7 +214,7 @@
       <h3>My Account</h3>
       <a href="Authentication/login.php">Sign in</a>
       <a href="Student/studentdashboard.html">Dashboard</a>
-      <a href="contact.html">Help</a>
+      <a href="contact.php">Help</a>
       <a href="Authentication/register.php">Sign up</a>
     </div>
     <div class="legal">
@@ -221,7 +222,7 @@
       <a href="#">Cookie Policy</a>
       <a href="#">Terms & Conditions</a>
       <a href="#">Privacy Policy</a>
-      <a href="contact.html">Contact us</a>
+      <a href="contact.php">Contact us</a>
     </div>
     <div class="app">
       <h3>Our App</h3>
